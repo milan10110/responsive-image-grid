@@ -22,18 +22,21 @@ const PintrestGrid = () => {
   };
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{
+        display: "grid",
+        gridTemplateColumns: `repeat(auto-fill, ${imageWidth + 20}px)`,
+        gridAutoRows: "10px",
+      }}
+    >
       {images.map((image) => (
         <div
+          key={image.id}
           className="image-container"
           style={{ gridRowEnd: `span ${calcSpan(image)}` }}
         >
-          <img
-            className="images"
-            key={image.id}
-            src={image.urls?.small}
-            alt=""
-          />
+          <img className="images" src={image.urls?.small} alt="" />
         </div>
       ))}
     </div>
